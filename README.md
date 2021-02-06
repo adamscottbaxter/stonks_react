@@ -65,6 +65,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
+To deploy run:
+
+`yarn build && yarn deploy`
+
+Steps to setup a deployment user found here https://andela.com/insights/how-to-deploy-your-react-app-to-aws-s3/
+- Make a user on AWS IAM -  AWS Identity and Access Management (IAM)
+- Select next to move to the next configuration window where we will select the level of access this user will be given. We are assigning this user full access to S3 and to do that, click on Attach existing policies directly and search for S3 using the provided search box. We will be selecting the AmazonS3FullAccess from the displayed result. You are required to download a generated credentials for this user then close.
+- install AWS CLI
+- `$ aws configure` You will be prompted to input first, your access key ID then secret access key. These are the keys provided in the .csv file you downloaded.
+- `$ aws s3 ls` sanity check. Should show buckets you control.
+
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
