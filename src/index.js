@@ -4,9 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+class Price extends React.Component {
+  render() {
+    return (
+      <div className="code">
+        <h3>Current Price of </h3>
+      </div>
+    );
+  }
+}
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Price />
   </React.StrictMode>,
   document.getElementById('root')
 );
