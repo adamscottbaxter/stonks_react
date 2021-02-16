@@ -5,10 +5,34 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 class Price extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded: false,
+      stocks: [],
+
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://stonks-python-api.herokuapp.com/yfin/aapl")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            stocks: result
+          });
+          console.log(result);
+        },
+      )
+  }
   render() {
+    const { stocks } = this.state;
     return (
       <div className="code">
         <h3>Current Price of </h3>
+        <h4>{stocks}</h4>
       </div>
     );
   }
