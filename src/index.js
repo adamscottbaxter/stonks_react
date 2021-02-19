@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { config } from './constants'
 
 class Price extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Price extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://stonks-python-api.herokuapp.com/yfin/aapl")
+    fetch(config.url.API_URL + "/yfin/aapl")
       .then(res => res.json())
       .then(
         (result) => {
