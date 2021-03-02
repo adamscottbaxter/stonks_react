@@ -7,17 +7,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          🚀🚀🚀🚀🚀 stonks 🚀🚀🚀🚀🚀
         </p>
-        <p>🚀🚀🚀🚀🚀 stonks 🚀🚀🚀🚀🚀</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Type in a stock symbol below to get the latest close price</p>
       </header>
     </div>
   );
