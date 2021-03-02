@@ -13,6 +13,7 @@ class Price extends React.Component {
       isLoaded: false,
       stocks: [],
       stockName: 'aapl',
+      lastPrice: [],
 
     };
     this.handleChange = this.handleChange.bind(this);
@@ -46,7 +47,8 @@ class Price extends React.Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            stocks: result
+            stocks: result,
+            lastPrice: result.slice(-1).pop()
           });
           console.log(result);
         },
@@ -63,6 +65,8 @@ class Price extends React.Component {
           <input type="submit" value="Submit" />
         </form>
         <h3>Current Price of {this.state.stockName}</h3>
+        <p>&&&still working on this&&&</p>
+        <h3>Last 60 days of {this.state.stockName}</h3>
         <ul>
           {this.state.stocks.map((stock, index) =>
             <li key={index}>Date: {stock.Date} Close: {stock.Close}</li>
