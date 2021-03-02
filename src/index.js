@@ -12,7 +12,7 @@ class Price extends React.Component {
     this.state = {
       isLoaded: false,
       stocks: [],
-      stockName: '',
+      stockName: 'aapl',
 
     };
     this.handleChange = this.handleChange.bind(this);
@@ -26,10 +26,21 @@ class Price extends React.Component {
   handleSubmit(event) {
     alert('A stock was submitted: ' + this.state.stockName);
     event.preventDefault();
+    fetch(`https://stonks-python-api.herokuapp.com/yfin/${this.state.stockName}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            stocks: result
+          });
+          console.log(result);
+        },
+      )
   }
 
   componentDidMount() {
-    fetch("https://stonks-python-api.herokuapp.com/yfin/aapl")
+    fetch('https://stonks-python-api.herokuapp.com/yfin/aapl')
       .then(res => res.json())
       .then(
         (result) => {
@@ -42,10 +53,16 @@ class Price extends React.Component {
       )
   }
   render() {
-    // const { stocks } = this.state;
     return (
       <div className="code">
-        <h3>Current Price of stockname</h3>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Stock symbol:
+            <input type="text" value={this.state.stockName} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+        <h3>Current Price of {this.state.stockName}</h3>
         <ul>
           {this.state.stocks.map((stock, index) =>
             <li key={index}>Date: {stock.Date} Close: {stock.Close}</li>
