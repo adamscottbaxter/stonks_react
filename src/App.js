@@ -9,7 +9,7 @@ function App() {
         <p>
           🚀🚀🚀🚀🚀 stonks 🚀🚀🚀🚀🚀
         </p>
-        <p>Type in a stock symbol below to get the latest close price</p>
+
       </header>
     </div>
   );
