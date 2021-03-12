@@ -2,28 +2,25 @@ import React, { Component } from 'react'
 
 class Search extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {
-      searchSym: ''
-    }
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
   handleChange(event) {
-    this.setState({searchSym: event.target.value})
+    this.props.onSearchChange(event.target.value);
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.searchSym);
+    alert('A symbol was submitted: ' + event.target.value);
     event.preventDefault();
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.searchSym} onChange={this.handleChange} />
+        <input type="text" value={this.props.searchSym} onChange={this.handleChange} />
       </form>
     )
   }
