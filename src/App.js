@@ -24,9 +24,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
-            🚀🚀🚀🚀🚀 stonks 🚀🚀🚀🚀🚀
-          </p>
+          <h1>
+            🚀🚀🚀 Stonks 🚀🚀🚀
+          </h1>
           <Search searchSymbol={this.state.searchSymbol} onSearchChange={this.handleSearchChange} />
         </header>
         {displaySearchResults}
