@@ -20,8 +20,6 @@ class App extends React.Component {
     var displaySearchResults;
     if (this.state.searchSymbol) {
       displaySearchResults = <Ticker symbol={this.state.searchSymbol} />
-    } else {
-      displaySearchResults = <h3>no search</h3>
     }
     return (
       <div className="App">
