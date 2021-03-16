@@ -33,9 +33,11 @@ class Price extends React.Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            priceHistory: result
+            priceHistory: result,
+            lastPrice: result[result.length - 1]
           });
           console.log(result);
+          console.log(this.state.lastPrice);
         },
       )
   }
@@ -51,7 +53,7 @@ class Price extends React.Component {
             lastPrice: result[result.length - 1]
           });
           console.log(result);
-          console.log(this.state.lastPrice);
+          console.log('current price', this.state.lastPrice);
         },
       )
   }
