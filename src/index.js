@@ -81,6 +81,8 @@ class Price extends React.Component {
   }
 }
 
+export default Price;
+
 // function Import() {
 //   const [stocks, setStocks] = React.useState([]);
 //   React.useEffect(() => {
