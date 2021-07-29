@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { config } from './constants'
 import axios from 'axios';
+import * as PyApi from './PyApi'
 
 class Price extends React.Component {
   constructor(props) {
@@ -27,8 +28,7 @@ class Price extends React.Component {
   handleSubmit(event) {
     alert('A stock was submitted: ' + this.state.stockName);
     event.preventDefault();
-    fetch(`https://stonks-python-api.herokuapp.com/yfin/${this.state.stockName}`)
-      .then(res => res.json())
+    PyApi.getPrices(this.state.stockName)
       .then(
         (result) => {
           this.setState({
@@ -41,8 +41,7 @@ class Price extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://stonks-python-api.herokuapp.com/yfin/aapl')
-      .then(res => res.json())
+    PyApi.getPrices('aapl')
       .then(
         (result) => {
           this.setState({
